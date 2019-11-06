@@ -1,3 +1,4 @@
+<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
 <div id="home">
   <div class="container">
     <div class="row">
@@ -29,5 +30,17 @@
   </div>
 </div>
 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '478808142730188',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v5.0'
+    });
+  };
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=478808142730188&autoLogAppEvents=1"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
