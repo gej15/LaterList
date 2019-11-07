@@ -1,8 +1,11 @@
-<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+<link type="text/css" rel="stylesheet" href="bower_components/firebaseui/dist/firebaseui.css" />
 <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
+        <h1>Welcome to My Awesome App</h1>
+<div id="firebaseui-auth-container"></div>
+<div id="loader">Loading...</div>
         <h1>{{msg}}</h1>
         <h2>This is our Home Page!</h2>
         <form class="clearfix mb-4" action="POST">
@@ -30,17 +33,15 @@
   </div>
 </div>
 
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '478808142730188',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v5.0'
-    });
-  };
-</script>
-<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=478808142730188&autoLogAppEvents=1"></script>
+
+<script src="bower_components/firebaseui/dist/firebaseui.js"></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
