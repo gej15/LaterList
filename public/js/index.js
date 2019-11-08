@@ -1,22 +1,56 @@
 $(document).ready(function() {
   // Execute some code here
-  $.ajaxSetup({ cache: true });
-  $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
-    FB.init({
-      appId: '{478808142730188}',
-      version: 'v2.7' // or v2.1, v2.2, v2.3, ...
-    });     
-    $('#loginbutton,#feedbutton').removeAttr('disabled');
-    FB.getLoginStatus(updateStatusCallback);
-  });
+ 
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCMYpMAbjntYhCyxjGlGlbEezOYhxP6HQQ",
+    authDomain: "project2-b70da.firebaseapp.com",
+    databaseURL: "https://project2-b70da.firebaseio.com",
+    projectId: "project2-b70da",
+    storageBucket: "project2-b70da.appspot.com",
+    messagingSenderId: "494117517998",
+    appId: "1:494117517998:web:0da2a85b81a6a310134b3f",
+    measurementId: "G-SJ6H5B10ER"
+  };
 
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-});
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-FB.login(function(response){
-  console.log(response)
-});
+btnLogin.addEventListener('click', e => {
+    const email = txtEmail.val().trim()
+    const pass = txtPassword.val().trim()
+    const auth = firebase.auth()
+
+    const promise = auth.signInWithEmailAndPassword(email, pass)
+
+    promise.catch(e => console.log(e.message))
+})
+
+btnSignUp.addEventListener('click', e => {
+
+    // TODO check for real email
+    const email = txtEmail.val().trim()
+    const pass = txtPassword.val().trim()
+    const auth = firebase.auth()
+
+    const promise = auth.createUserWithEmailAndPassword(email, pass)
+
+    promise.catch(e => console.log(e.message))
+})
+
+firebase.auth().onAuthStateChange(firebaseUser => {
+    if (firebaseUser){
+        console.log(firebaseUser)
+    } else {
+        console.log('not logged in')
+    }
+})
+
+btnLogout.addEventListener('click', e => {
+    firebase.auth().signOut()
+})
+
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
