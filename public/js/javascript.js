@@ -24,9 +24,16 @@ $(document).ready(function() {
             // User successfully signed in.
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
-            var user = authResult.user;
-            localStorage.setItem('user', JSON.stringify(user))
-            console.log(user)
+            // var user = authResult.user;
+            // localStorage.setItem('user', JSON.stringify(user))
+            // console.log(user)
+
+            // $.post("/api/new", user)
+            // // On success, run the following code
+            // .then(function(data) {
+            //   // Log the data we found
+            //   console.log(data);
+            // });
            
             return true;
           },
