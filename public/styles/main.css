@@ -259,3 +259,6 @@ footer .mdl-logo a {
   height: 40px;
   max-height: 40px !important;
 }
+.carCard:hover{
+  cursor: pointer
+}
