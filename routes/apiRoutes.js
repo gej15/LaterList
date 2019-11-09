@@ -1,8 +1,9 @@
 const User = require("../models/example");
 const Item = require("../models/example");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Get all examples
+
   app.get("/api/user", function(req, res) {
     User.findAll({}).then(function(user) {
       res.json(user);
