@@ -28,20 +28,20 @@
             <div class="mdl-layout__header-row site-logo-row headerBackground"><span class="mdl-layout__title">
                     <div class="site-logo"></div><span class="site-description">The Later List</span>
                 </span></div>
-            <div
+                <div
                 class="mdl-layout__header-row site-navigation-row mdl-layout--large-screen-only headerSmallerBackground">
                 <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link"
-                        href="landing-page.html">Home</a><a class="mdl-navigation__link" href="portfolio.html">My
-                        List</a><a class="mdl-navigation__link" href="search.html">Search</a><a
-                        class="mdl-navigation__link" href="browse.html">Browse</a>
+                        href="/">Home</a><a class="mdl-navigation__link" href="/portfolio">My
+                        List</a><a class="mdl-navigation__link" href="/search">Search</a><a
+                        class="mdl-navigation__link" href="/browse">Browse</a>
                 </nav>
             </div>
         </header>
         <div class="mdl-layout__drawer mdl-layout--small-screen-only">
             <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link"
-                    href="landing-page.html">Home</a><a class="mdl-navigation__link" href="portfolio.html">My List</a><a
-                    class="mdl-navigation__link" href="search.html">Search</a><a class="mdl-navigation__link"
-                    href="browse.html">Browse</a>
+                    href="/">Home</a><a class="mdl-navigation__link" href="/portfolio">My List</a><a
+                    class="mdl-navigation__link" href="/search">Search</a><a class="mdl-navigation__link"
+                    href="/browse">Browse</a>
             </nav>
         </div>
         <main class="mdl-layout__content landingBackground">
@@ -56,7 +56,9 @@
                                 <h2 class="mdl-card__title-text">Sign Up</h2>
                             </div>
 
-                            <form action="#" class="mdl-card--border">
+                            <div id="firebaseui-auth-container"></div>
+
+                            <!-- <form action="#" class="mdl-card--border">
                                 <div class="mdl-textfield mdl-cell--2-offset mdl-js-textfield">
                                     <input class="mdl-textfield__input" type="text" id="sample1">
                                     <label class="mdl-textfield__label" for="sample1">Username:</label>
@@ -74,7 +76,7 @@
                             <section class="section--center mdl-grid site-max-width homepage-portfolio">
                                 <a class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect mdl-button--accent"
                                     id="signUpButton" href="portfolio.html">Sign Up With Email</a>
-                            </section>
+                            </section> -->
                         </div>
                     </div>
 
@@ -93,6 +95,22 @@
             </footer>
         </main>
     </div>
+
+    <script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+  
+    <!-- Add Firebase products that you want to use -->
+    <script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+      <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+      <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+      <script src="./js/javascript.js"></script>
 </body>
 
 </html>
