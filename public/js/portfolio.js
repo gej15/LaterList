@@ -16,10 +16,75 @@ $(document).ready(function() {
     firebase.initializeApp(firebaseConfig);
 
     console.log("start")
-    
-    let user = JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'))
+    let user =  JSON.parse(localStorage.getItem('user'))
+    // console.log(user)
+    // console.log(user.email)
+    let email = ({
+        name: user.email
+    })
+    let userId 
 
-    console.log(user)
-  
-    
+    $.get("/api/user", function(data){
+       
+        let currentUserValid = false
+        for (let i = 0; i < data.length; i++){
+            console.log(data)
+            console.log(data.length)
+            console.log(data[i].name)
+            console.log(email.name)
+            if (data[i].name === email.name ){
+                currentUserValid = true
+            } else {
+                console.log('no')
+            }
+            if (!currentUserValid) {
+                console.log("new user")
+                addUser()
+            } else {
+                console.log('already a user')
+                userId = data[i].id
+                console.log(userId)
+
+                let item = ({
+                    catagory: "podcast",
+                    title:  "akward turtles",
+                    itemId: "j256asig23rf",
+                    UserId: userId,
+                })
+            
+            
+                function addAnItem(){
+                    $.post("/api/newItem", item)
+                    .then(function(item){
+                        console.log(item)
+                    })
+                }
+                addAnItem()
+            }
+        }
+        
+        function addUser() {
+            $.post("/api/new", email)
+            .then(function(email) {
+                // Log the data we found
+            console.log(email);
+            })
+        }
+    })
+
+    // let item = ({
+    //     catagory: "podcast",
+    //     title:  "akward turtles",
+    //     itemId: "j256asig23rf",
+    //     UserId: userId,
+    // })
+
+
+    // function addAnItem(){
+    //     $.post("/api/newItem", item)
+    //     .then(function(item){
+    //         console.log(item)
+    //     })
+    // }
+    // addAnItem()
 })  
