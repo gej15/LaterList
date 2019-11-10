@@ -25,9 +25,12 @@ $(document).ready(function() {
     let userId 
 
     $.get("/api/user", function(data){
-       
+        console.log(data.length)
         let currentUserValid = false
-        for (let i = 0; i < data.length; i++){
+        if (data.length === 0){
+            addUser()
+        } else {
+          for (let i = 0; i < data.length; i++){
             console.log(data)
             console.log(data.length)
             console.log(data[i].name)
@@ -61,8 +64,8 @@ $(document).ready(function() {
                 }
                 addAnItem()
             }
+          }
         }
-        
         function addUser() {
             $.post("/api/new", email)
             .then(function(email) {
