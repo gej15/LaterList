@@ -1,7 +1,8 @@
 let db = require('../models')
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Get all examples
+
   app.get("/api/user", function(req, res) {
     db.User.findAll({}).then(function(user) {
       res.json(user);

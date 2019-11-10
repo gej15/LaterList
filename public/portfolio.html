@@ -26,225 +26,44 @@
       <div class="mdl-layout__header-row site-logo-row headerBackground"><span class="mdl-layout__title">
           <div class="site-logo"></div><span class="site-description">The Later List</span>
         </span></div>
-        <div
-        class="mdl-layout__header-row site-navigation-row mdl-layout--large-screen-only headerSmallerBackground">
+      <div class="mdl-layout__header-row site-navigation-row mdl-layout--large-screen-only headerSmallerBackground">
         <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link"
-                href="/">Home</a><a class="mdl-navigation__link" href="/portfolio">My
-                List</a><a class="mdl-navigation__link" href="/search">Search</a><a
-                class="mdl-navigation__link" href="/browse">Browse</a>
-        </nav>
-    </div>
-</header>
-<div class="mdl-layout__drawer mdl-layout--small-screen-only">
-    <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link"
-            href="/">Home</a><a class="mdl-navigation__link" href="/portfolio">My List</a><a
-            class="mdl-navigation__link" href="/search">Search</a><a class="mdl-navigation__link"
+            href="/">Home</a><a class="mdl-navigation__link" href="/portfolio">My
+            List</a><a class="mdl-navigation__link" href="/search">Search</a><a class="mdl-navigation__link"
             href="/browse">Browse</a>
-    </nav>
-</div>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link"
+          href="/">Home</a><a class="mdl-navigation__link" href="/portfolio">My List</a><a class="mdl-navigation__link"
+          href="/search">Search</a><a class="mdl-navigation__link" href="/browse">Browse</a>
+      </nav>
+    </div>
     <main class="mdl-layout__content">
       <div class="site-content">
         <div class="container">
           <div class="mdl-grid site-max-width">
+            <div class="mdl-cell mdl-cell--8-col mdl-cell--2-offset listButtonsBox">
 
-            <!-- Simple Textfield -->
-            <!-- <div class="mdl-cell mdl-card  mdl-cell--2-offset mdl-cell--8-col mdl-shadow--4dp portfolio-card searchBar">
-              <form action="#">
-                <div class="mdl-textfield mdl-js-textfield mdl-cell--2-offset">
-                  <input class="mdl-textfield__input" type="text" id="sample1">
-                  <label class="mdl-textfield__label" for="sample1">Text...</label>
-                </div>
-              </form>
-            </div> -->
-            <div class="mdl-cell mdl-cell--12-col">
-              <div class="inline-text-field-container mdl-cell mdl-cell--2-offset mdl-cell--8-col ">
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored listButton tomatoButton"
+                id="allButton">
+                All
+              </button>
 
-                <div class="mdc-text-field mdc-text-field--outlined">
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored listButton tomatoButton"
+                id="moviesButton">
+                Movies
+              </button>
+
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored listButton tomatoButton"
+                id="podButton">
+                Podcasts
+              </button>
 
 
-                  <input class="mdc-text-field__input" autocorrect="off" autocomplete="off" spellcheck="false"
-                    id="demo-mdc-text-field" maxlength="524288">
-
-                  <div class="mdc-notched-outline mdc-notched-outline--upgraded">
-                    <div class="mdc-notched-outline__leading"></div>
-                    <div class="mdc-notched-outline__notch" style="">
-
-                      <label for="demo-mdc-text-field" class="mdc-floating-label" style="">
-                        <!---->Label
-                        <!----></label>
-
-                    </div>
-                    <div class="mdc-notched-outline__trailing"></div>
-                  </div>
-
-                </div>
-
-              </div>
             </div>
 
-
-            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-              <div class="mdl-card__media">
-                <img class="article-image" src="img/portfolio1.jpg" border="0" alt="">
-              </div>
-              <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">Rocky Peak</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                nostrud aliqua consectetur ad consectetur sunt..
-              </div><br>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-                  href="portfolio-page.html">
-                  Learn More
-                </a>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-              <div class="mdl-card__media">
-                <img class="article-image" src="img/portfolio2.jpg" border="0" alt="">
-              </div>
-              <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">Night Shadow</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                nostrud aliqua consectetur ad consectetur sunt..
-              </div><br>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-                  href="portfolio-page.html">
-                  Learn More
-                </a>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-              <div class="mdl-card__media">
-                <img class="article-image" src="img/portfolio3.jpg" border="0" alt="">
-              </div>
-              <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">Sky Reach</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                nostrud aliqua consectetur ad consectetur sunt..
-              </div><br>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-                  href="portfolio-page.html">
-                  Learn More
-                </a>
-              </div>
-            </div><br>
-            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-              <div class="mdl-card__media">
-                <img class="article-image" src="img/portfolio4.jpg" border="0" alt="">
-              </div>
-              <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">Pencil Tip</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                nostrud aliqua consectetur ad consectetur sunt..
-              </div><br>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-                  href="portfolio-page.html">
-                  Learn More
-                </a>
-              </div>
-            </div><br>
-            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-              <div class="mdl-card__media">
-                <img class="article-image" src="img/portfolio5.jpg" border="0" alt="">
-              </div>
-              <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">Magic Leaves</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                nostrud aliqua consectetur ad consectetur sunt..
-              </div><br>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-                  href="portfolio-page.html">
-                  Learn More
-                </a>
-              </div>
-            </div><br>
-            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-              <div class="mdl-card__media">
-                <img class="article-image" src="img/portfolio6.jpg" border="0" alt="">
-              </div>
-              <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">Water Flow</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                nostrud aliqua consectetur ad consectetur sunt..
-              </div><br>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-                  href="portfolio-page.html">
-                  Learn More
-                </a>
-              </div>
-            </div><br>
-            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-              <div class="mdl-card__media">
-                <img class="article-image" src="img/portfolio7.jpg" border="0" alt="">
-              </div>
-              <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">Lonely Bridge</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                nostrud aliqua consectetur ad consectetur sunt..
-              </div><br>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-                  href="portfolio-page.html">
-                  Learn More
-                </a>
-              </div>
-            </div><br>
-            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-              <div class="mdl-card__media">
-                <img class="article-image" src="img/portfolio8.jpg" border="0" alt="">
-              </div>
-              <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">Busy Street</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                nostrud aliqua consectetur ad consectetur sunt..
-              </div><br>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-                  href="portfolio-page.html">
-                  Learn More
-                </a>
-              </div>
-            </div><br>
-            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-              <div class="mdl-card__media">
-                <img class="article-image" src="img/portfolio9.jpg" border="0" alt="">
-              </div>
-              <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">City Scape</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                nostrud aliqua consectetur ad consectetur sunt..
-              </div><br>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-                  href="portfolio-page.html">
-                  Learn More
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
