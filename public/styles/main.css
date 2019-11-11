@@ -259,6 +259,28 @@ footer .mdl-logo a {
   height: 40px;
   max-height: 40px !important;
 }
-.carCard:hover{
-  cursor: pointer
+
+.listButtonsBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#allButton {
+  background-color: tomato;
+  width: 100px;
+}
+
+#moviesButton {
+  background-color: tomato;
+  width: 100px;
+}
+
+#podButton {
+  background-color: tomato;
+  width: 100px;
+}
+
+.catCard:hover {
+  cursor: pointer;
 }
