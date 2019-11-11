@@ -18,6 +18,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
+  app.get("/login", function(req, res){
+    res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
+
   // add route loads the add.html page, where users can enter new books to the db
   app.get("/browse", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/browse.html"));

@@ -1,34 +1,32 @@
 $(document).ready(function() {
     
-  console.log("start")
-  let user = JSON.parse(localStorage.getItem('user'))
-  // console.log(user)
-  // console.log(user.email)
-  console.log(user)
-
-  if (!user) {
-      console.log('no user')
-      $('#signout').css('display', 'none')
-      $('#myList').css('display', 'none')
-
-  } else {
-      console.log('there is a user')
-      $('#welcome').text('Welcome ' + user.displayName )
-      $('#login').css('display', 'none')
+    console.log("start")
+    let user = JSON.parse(localStorage.getItem('user'))
+    // console.log(user)
+    // console.log(user.email)
+    console.log(user)
+  
+    if (!user) {
+        console.log('no user')
+        $('#signout').css('display', 'none')
+        $('#myList').css('display', 'none')
+    } else {
+        console.log('there is a user')
+        $('#welcome').text('Welcome ' + user.displayName )
+        $('#login').css('display', 'none')
+        validateUser()        
     }
-
-  $('#signout').on('click', function(){
-      localStorage.setItem('user', JSON.stringify(''))
-      location.href = '/search'
-  })
-
-
-    let userId = ""
-    let email = ({
-      name: user.email
+  
+    $('#signout').on('click', function(){
+        localStorage.setItem('user', JSON.stringify(''))
+        location.href = '/search'
     })
 
-    console.log(email)
+
+  let userId = ""
+  let email = ({
+    name: user.email
+  })
 
   function validateUser() {
       $.get("/api/user", function(data){
