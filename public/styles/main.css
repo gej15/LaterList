@@ -280,3 +280,7 @@ footer .mdl-logo a {
   background-color: tomato;
   width: 100px;
 }
+
+.catCard:hover {
+  cursor: pointer;
+}
