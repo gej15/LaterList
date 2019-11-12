@@ -17,6 +17,7 @@
   <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <link href="styles/main.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body id="top">
@@ -24,13 +25,23 @@
     <header class="mdl-layout__header mdl-layout__header--waterfall site-header">
       <div class="mdl-layout__header-row site-logo-row headerBackground"><span class="mdl-layout__title">
           <div class="site-logo"></div><span class="site-description">The Later List</span>
+          <p id='welcome'></p>
         </span></div>
       <div class="mdl-layout__header-row site-navigation-row mdl-layout--large-screen-only headerSmallerBackground">
-        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link"
-            href="/">Home</a><a class="mdl-navigation__link" href="/portfolio">My
-            List</a><a class="mdl-navigation__link" href="/search">Search</a><a class="mdl-navigation__link"
-            href="/browse">Browse</a>
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+          <a class="mdl-navigation__link" href="/">Home</a>
+          <a class="mdl-navigation__link" id=myList href="/portfolio">My List</a>
+          <a class="mdl-navigation__link" href="/search">Search</a>
+          <a class="mdl-navigation__link" href="/browse">Browse</a>
+          <!-- --------------------------- -->
+          <a class="mdl-navigation__link" id=signout href="#">Signout</a>
+          <a class="mdl-navigation__link" id='login' href="/login">Login</a>   
+          <!-- ----------------------------------- -->
+          
         </nav>
+        
+
+
       </div>
     </header>
     <div class="mdl-layout__drawer mdl-layout--small-screen-only">
@@ -81,15 +92,12 @@
 
   <script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-
-  <script src="./js/javascript.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    
+    <script src="./js/portfolio.js"></script>
 </body>
 
 </html>

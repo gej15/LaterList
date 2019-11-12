@@ -24,21 +24,29 @@ $(document).ready(function() {
             // User successfully signed in.
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
+            console.log("in callback")
             var user = authResult.user;
             localStorage.setItem('user', JSON.stringify(user))
-            console.log(user)
+  
+
+            // $.post("/api/newr", user)
+            // // On success, run the following code
+            // .then(function(data) {
+            //   // Log the data we found
+            //   console.log(data);
+            // });
            
             return true;
           },
           uiShown: function() {
             // The widget is rendered.
             // Hide the loader.
-            document.getElementById('loader').style.display = 'none';
+            // document.getElementById('loader').style.display = 'none';
           }
         },
         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
         signInFlow: 'default',
-        signInSuccessUrl: "/",
+        signInSuccessUrl: "/portfolio",
         signInOptions: [
           firebase.auth.EmailAuthProvider.PROVIDER_ID,
         ],
@@ -49,10 +57,6 @@ $(document).ready(function() {
         privacyPolicyUrl: '<your-privacy-policy-url>'
       };
 
-      ui.start('#firebaseui-auth-container', uiConfig);
+      ui.start('#firebaseui-auth-container', uiConfig); 
 
-      let user = JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'))
-
-      console.log(user)
-    
 })
