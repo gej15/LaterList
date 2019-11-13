@@ -62,7 +62,7 @@ $(document).ready(function() {
         catagory: "podcast",
         title:  "akward turtles",
         itemId: "j256asig23rf",
-        UserId: userId,
+        UserId: 1,
     })
 
     function addAnItem(){
@@ -71,7 +71,7 @@ $(document).ready(function() {
             console.log(item)
         })
     }
-    // addAnItem()
+    addAnItem()
 
     function addUser() {
         $.post("/api/new", email)
