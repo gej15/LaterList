@@ -102,7 +102,7 @@ img {
 }
 
 .event-card {
-  background: #3E4EB8;
+  background: #3e4eb8;
 }
 
 .event-card .mdl-card__actions {
@@ -125,7 +125,7 @@ img {
   display: flex;
   box-sizing: border-box;
   -ms-flex-align: center;
-      align-items: center;
+  align-items: center;
 }
 
 .event-card .mdl-card__actions > .material-icons {
@@ -248,7 +248,6 @@ footer .mdl-logo a {
   height: 40px;
   max-height: 40px !important;
 }
-
 .listButtonsBox {
   display: flex;
   align-items: center;
