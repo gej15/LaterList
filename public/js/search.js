@@ -27,30 +27,11 @@ $(document).ready(function() {
     let email = ({
         name: user.email
     })
+    let item = ({})
 
  
-    function callPodcast() {
-        const podQueryURL = 'https://itunes.apple.com/search?term=' + search +'&entity=podcast&limit=5'
-        $.ajax({
-            url:  podQueryURL,
-            method: "GET",
-            // The name of the callback parameter
-            jsonp: "callback",
 
-            // Tell jQuery we're expecting JSONP
-            dataType: "jsonp",
-            // Work with the response
-            success: function( response ) {
-            console.log( response ); // server response
-            }
-        })
-    }
-    
 
-    callPodcast()
-    
-    
-   
     
     function validateUser() {
         $.get("/api/user", function(data){
@@ -58,7 +39,7 @@ $(document).ready(function() {
             console.log(data)
             let currentUserValid = false
             if (data.length === 0) {
-                addUser()
+                // addUser()
             } else {
                 for (let i = 0; i < data.length; i++){
                     console.log(data)
@@ -74,15 +55,110 @@ $(document).ready(function() {
                 }
                 if (!currentUserValid) {
                     console.log("new user")
-                    addUser()
                 } else {
                     console.log('already a user')
-                    console.log(userId)  
+                    console.log(userId) 
+                    // callData()
                 }
             }
         })
     }
 
+
+
+    // async function callData(){
+    //     console.log('in call data')
+    //     try{
+    //         console.log('in try')
+    //         const callPod = await callPodcast()
+       
+
+    //         // const results = await Promise.all([callPodcast, addItem])
+    //     } catch(e){
+    //         throw e
+    //     }
+    // }
+   
+    $('#searchButton').on('click', function(event){
+        event.preventDefault()
+        let searchTerm = $('#search').val().trim()
+        console.log(searchTerm)
+        console.log('working')   
+    // function callPodcast() {
+        const podQueryURL = 'https://itunes.apple.com/search?term=' + searchTerm + '&entity=podcast&limit=10'
+        let lookUpId = 'https://itunes.apple.com/lookup?id=769189585'
+        $.ajax({
+            url:  podQueryURL,
+            method: "GET",
+            // The name of the callback parameter
+            jsonp: "callback",
+
+            // Tell jQuery we're expecting JSONP
+            dataType: "jsonp",
+            // Work with the response
+            success: function(response) {
+                console.log( response );
+                console.log(response.results.length)
+                for (let i = 0; i < response.results.length; i++){
+             // server response
+                    console.log(response.results[i].artworkUrl100)
+                    console.log(response.results[i].trackId)
+                    console.log(response.results[i].collectionName)
+                    console.log(response.results[i].artistName)
+                    console.log(response.results[i].kind)
+                    console.log('------------------------------------')
+
+                    const movieDiv = $("<div class='podcast'>");
+//             //   ------------------------------------------
+            const id = response.results[i].trackId;
+            const pID = $("<p>").text("Id" + id);
+            movieDiv.append(pID);
+            const artwork = response.results[i].artworkUrl100;
+            const pOne = $("<p>").text("Artwork: " + artwork);
+            movieDiv.append(pOne);
+            //   ---------------------------------------------
+            const name = response.results[i].collectionName;
+            const pTwo = $("<p>").text("Name: " + name);
+            movieDiv.append(pTwo);
+            //   -----------------------------------------------
+            const artist = response.results[i].artistName;
+            const pThree = $("<p>").text("Artist: " + artist);
+            movieDiv.append(pThree);
+            //   ------------------------------------------------
+            const kind = response.results[i].kind;
+            const pFour = $("<p>").text("Kind: " + kind);
+            movieDiv.append(pFour);
+            
+            $("#box").prepend(movieDiv);
+   
+             }
+                }
+            //  item = ({
+            //     catagory: "podcast",
+            //     title: response.results[0].collection,
+            //     itemid:  response.results[0].trackId,
+            //     UserId: 2
+            // })
+            
+            // console.log(item)
+
+            // return item
+            // }
+        })
+    })
+    // }
+
+    
+    function addAnItem(){
+        console.log('ITEM')
+        $.post("/api/newItem", item)
+        .then(function(item){
+            console.log(item)
+            console.log('in post')
+        })
+    }
+
+    
 
 //     let movie = $(this).val("#movie-input");
 //         // let movie = $('#movie-form').val();
