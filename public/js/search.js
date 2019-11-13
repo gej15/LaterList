@@ -27,8 +27,6 @@ $(document).ready(function() {
     let email = ({
         name: user.email
     })
-
- 
     function callPodcast() {
         const podQueryURL = 'https://itunes.apple.com/search?term=' + search +'&entity=podcast&limit=5'
         $.ajax({
