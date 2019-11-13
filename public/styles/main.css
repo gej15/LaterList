@@ -108,7 +108,7 @@ img {
 }
 
 .event-card {
-  background: #3E4EB8;
+  background: #3e4eb8;
 }
 
 .event-card .mdl-card__actions {
@@ -117,7 +117,7 @@ img {
 
 .event-card .mdl-card__title {
   -ms-flex-align: start;
-      align-items: flex-start;
+  align-items: flex-start;
 }
 
 .event-card .mdl-card__title > h4 {
@@ -129,7 +129,7 @@ img {
   display: flex;
   box-sizing: border-box;
   -ms-flex-align: center;
-      align-items: center;
+  align-items: center;
 }
 
 .event-card .mdl-card__actions > .material-icons {
@@ -228,7 +228,6 @@ footer .mdl-logo a {
   margin: 0 auto;
 }
 
-
 /* added */
 
 .landingBackground {
@@ -254,12 +253,10 @@ footer .mdl-logo a {
 #signUpButton:hover {
   background-color: #ff7158;
 }
-
 .searchBar {
   height: 40px;
   max-height: 40px !important;
 }
-
 .listButtonsBox {
   display: flex;
   align-items: center;
@@ -279,4 +276,14 @@ footer .mdl-logo a {
 #podButton {
   background-color: tomato;
   width: 100px;
+}
+
+.catCard:hover {
+  cursor: pointer;
+}
+.mdl-layout__header{
+  background-color: tomato;
+}
+.mdl-textfield__label{
+ 
 }

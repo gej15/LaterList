@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Jackson22",
-    "database": "sequelize_library",
+    "password": "password",
+    "database": "LaterListdb",
     "host": "localhost",
     "dialect": "mysql"
   },

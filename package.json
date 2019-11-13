@@ -1,15 +1,11 @@
 {
-  "name": "LaterList",
+  "name": "project2",
   "version": "1.0.0",
-  "description": "Project 2",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "lint": "eslint **/*.js --quiet",
-    "fix": "eslint --fix .",
-    "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
+  "description": "",
+  "main": "grant.js",
+  "directories": {
+    "test": "test"
   },
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
@@ -29,14 +25,16 @@
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
   },
-  "directories": {
-    "test": "test"
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/diborad-d/Project2.git"
   },
   "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/diborad-d/Project2/issues"
   },
