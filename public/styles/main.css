@@ -1,3 +1,6 @@
+@import "@material/floating-label/mdc-floating-label";
+
+/* default main.css under here */
 img {
   max-width: 100%;
 }
@@ -313,6 +316,7 @@ footer .mdl-logo a {
   color: white;
   font-size: 40px;
   font-weight: 400;
+  text-shadow: 2px 2px black;
 }
 
 #signUpButton {
