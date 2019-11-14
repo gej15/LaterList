@@ -6,6 +6,9 @@ The concept of our app originated from the hustle and bustle in everyday life an
 
 With our app, *“The Later List”*, users will be able to search for recommended podcasts, tv shows, or movies and save them to your list for when you have time later.
 
+![Image of Homepage](https://StanStanley512.github.com/Project2/public/img/sign-up-page-screenshot.JPG)
+![Image of search page](https://StanStanley512.github.com/Project2/public/img/search-screenshot.JPG)
+
 ## Design Process
 
 - Built LaterListdb in MySQL
