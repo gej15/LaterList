@@ -284,6 +284,22 @@ footer .mdl-logo a {
 .mdl-layout__header{
   background-color: tomato;
 }
-.mdl-textfield__label{
+/* .mdl-textfield__label{
  
+} */
+
+/* --------------------------------------------- */
+
+#box {
+  border: black solid 2px;
 }
+
+.podcast {
+  border: green solid 2px;
+}
+
+.displayPic {
+  height: 300px;
+  width: 300px;
+}
+
