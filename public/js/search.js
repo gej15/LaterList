@@ -199,6 +199,7 @@ function saveObject() {
             console.log(item)
             console.log('in post')
         })
+        $(this).hide();
 }
 
 })
