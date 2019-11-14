@@ -1,3 +1,6 @@
+@import "@material/floating-label/mdc-floating-label";
+
+/* default main.css under here */
 img {
   max-width: 100%;
 }
@@ -101,12 +104,6 @@ img {
   max-width: 700px;
 }
 
-.welcome-card > .mdl-card__title {
-  color: black;
-  height: 290px;
-  /* background: url("../img/cover.jpg") center/cover; */
-}
-
 .event-card {
   background: #3e4eb8;
 }
@@ -117,7 +114,9 @@ img {
 
 .event-card .mdl-card__title {
   -ms-flex-align: start;
-  align-items: flex-start;
+      align-items: flex-start;
+
+  background: transparent;
 }
 
 .event-card .mdl-card__title > h4 {
@@ -228,7 +227,8 @@ footer .mdl-logo a {
   margin: 0 auto;
 }
 
-/* added */
+
+/* added =========================================================================== */
 
 .landingBackground {
   background: url("../img/movieBackground.jpeg") center/cover;
@@ -236,6 +236,7 @@ footer .mdl-logo a {
 
 .signUpCard {
   margin-top: 60px;
+  text-align: center;
 }
 
 .headerBackground {
@@ -246,13 +247,6 @@ footer .mdl-logo a {
   background-color: #ff7158;
 }
 
-#signUpButton {
-  background-color: tomato;
-}
-
-#signUpButton:hover {
-  background-color: #ff7158;
-}
 .searchBar {
   height: 40px;
   max-height: 40px !important;
@@ -281,8 +275,61 @@ footer .mdl-logo a {
 .catCard:hover {
   cursor: pointer;
 }
-.mdl-layout__header{
-  background-color: tomato;
+
+#searchContainer {
+  display: flex;
+  width: 80vw;
+  /* border: 2px solid green; */
+}
+
+#searchDescription {
+  /* border: 1px solid blue; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+
+#searchCardImageBox {
+  color: white;
+  height: 180px;
+  background: url("../img/cover.jpg") center/cover;
+  /* border: 2px solid red; */
+  margin: 0px;
+  float: left;
+  height: 100%;
+  width: 60%;
+}
+
+#searchBoxContainer {
+  /* border: 2px solid purple; */
+  height: 100%;
+  width: 100%;
+}
+
+#homeCard {
+  background-color: transparent;
+}
+
+#signUpText {
+  color: white;
+  font-size: 40px;
+  font-weight: 400;
+  text-shadow: 2px 2px black;
+}
+
+#signUpButton {
+  height: 50px;
+  width: 100%;
+  background-color: whitesmoke;
+  color: black;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+#signUpButton:hover {
+  cursor: pointer;
 }
 /* .mdl-textfield__label{
  

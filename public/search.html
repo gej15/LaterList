@@ -36,7 +36,7 @@
                     <a class="mdl-navigation__link" href="browse.html">Browse</a>
                     <!-- --------------------------- -->
                     <a class="mdl-navigation__link" id=signout href="#">Signout</a>
-                    <a class="mdl-navigation__link" id='login' href="/login">Login</a>   
+                    <a class="mdl-navigation__link" id='login' href="/login">Login</a>
                     <!-- ----------------------------------- -->
                 </nav>
             </div>
@@ -48,44 +48,68 @@
                     href="browse.html">Browse</a>
             </nav>
         </div>
-      
+
         <main class="mdl-layout__content">
             <div class="site-content">
                 <div class="container">
                     <div class="mdl-grid site-max-width">
                         <div class="mdl-cell mdl-cell--12-col">
-                            <div class="inline-text-field-container mdl-cell mdl-cell--2-offset mdl-cell--8-col ">
-                                <div class="mdc-text-field mdc-text-field--outlined mdl-cell--12-col">
-                                        <form action="#">
-                                                <div class="mdl-textfield mdl-js-textfield">
-                                                  <input class="mdl-textfield__input" type="text" id="search">
-                                                  <label class="mdl-textfield__label" for="search">Search...</label>
-                                                </div>
-                                                <input class="mdc-text-field__input mdl-cell--12-col" autocorrect="off"
-                                        autocomplete="off" spellcheck="false">
-                                        </form>
-                                        
-                                    <!-- <div class="mdc-notched-outline mdc-notched-outline--upgraded">
-                                        <div class="mdc-notched-outline__leading"></div>
-                                        <div class="mdc-notched-outline__notch">
+                            <div class="inline-text-field-container mdl-cell mdl-cell--2-offset mdl-cell--10-col ">
+                                <div class="inline-text-field-container">
 
-                                            <label for="demo-mdc-text-field" class="mdc-floating-label">
-                                                Search</label>
+                                    <div class="mdc-text-field mdc-text-field--outlined mdl-cell--8-col">
 
+
+                                        <input class="mdc-text-field__input" autocorrect="off" autocomplete="off"
+                                            spellcheck="false" id="demo-mdc-text-field" maxlength="524288">
+
+                                        <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                            <div class="mdc-notched-outline__leading"></div>
+                                            <div class="mdc-notched-outline__notch" style="">
+
+                                                <label for="demo-mdc-text-field" class="mdc-floating-label" style="">
+                                                    <!---->Search
+                                                    <!----></label>
+
+                                            </div>
+                                            <div class="mdc-notched-outline__trailing"></div>
                                         </div>
-                                        <div class="mdc-notched-outline__trailing"></div>
-                                    </div> -->
 
+                                    </div>
+
+                                    <button class="mdl-button mdl-js-button mdl-button--raised" type='submit'
+                                        id='searchButton'>Submit</button>
                                 </div>
-                                <button class="mdl-button mdl-js-button mdl-button--raised" type='submit' id='searchButton' >Submit</button>
                             </div>
                         </div>
-                        <div id=box>text</div>
 
+                        <div class="mdl-grid container" id="searchContainer">
+                            <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp search-card">
+                                <div class="" id="searchBoxContainer">
+                                    <div class="mdl-card__title" id="searchCardImageBox">
+                                        <h1 class="mdl-card__title-text">Result Title</h1>
+                                    </div>
+                                    <div class="" id="searchDescription">
+                                        <h6>Description of result from search</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp search-card">
+                                <div class="" id="searchBoxContainer">
+                                    <div class="mdl-card__title " id="searchCardImageBox">
+                                        <h1 class="mdl-card__title-text">Result Title</h1>
+                                    </div>
+                                    <div class="" id="searchDescription">
+                                        <h6>Description of result from search</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-           
+
             <footer class="mdl-mini-footer">
                 <div class="footer-container">
                     <div class="mdl-logo">&copy; Unitiled. Design: <a href="https://templateflip.com/"
