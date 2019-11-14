@@ -22,6 +22,10 @@ $(document).ready(function() {
       location.href = '/search'
   })
 
+  $('#signUpButton').on('click', function(){
+    localStorage.setItem('user', JSON.stringify(''))
+    location.href = '/login'
+})
 
     let userId = ""
     let email = ({
