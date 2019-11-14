@@ -107,29 +107,50 @@ $(document).ready(function() {
                     console.log(response.results[i].artistName)
                     console.log(response.results[i].kind)
                     console.log('------------------------------------')
-
-                    const movieDiv = $("<div class='podcast'>");
+            
+            const cardDiv= $("<div class= 'cardDiv'>")
+            const movieDiv = $("<div class='cardImg'>");
+            const movieDiv2 = $("<div class='cardText'>")
+            const artwork = response.results[i].artworkUrl600;
+            const pOne = $("<img>").attr({
+                src: artwork,
+                class: "displayPic",
+            
+            });
+            movieDiv.append(pOne);
 //             //   ------------------------------------------
             const id = response.results[i].trackId;
             const pID = $("<p>").text("Id" + id);
-            movieDiv.append(pID);
-            const artwork = response.results[i].artworkUrl100;
-            const pOne = $("<p>").text("Artwork: " + artwork);
-            movieDiv.append(pOne);
+            movieDiv2.append(pID);
+            
             //   ---------------------------------------------
+            const save = $('<div>').attr({
+                    id: "tt1",
+                    class: "icon material-icons saveButton",
+                    catagory: 'podcast',
+                    title: response.results[i].collectionName,
+                    itemId: response.results[i].trackId,
+                    UserId: userId
+            })
+            $('.saveButton').text('add')
+            movieDiv2.append(save)
+            
+            
             const name = response.results[i].collectionName;
             const pTwo = $("<p>").text("Name: " + name);
-            movieDiv.append(pTwo);
+            movieDiv2.append(pTwo);
             //   -----------------------------------------------
             const artist = response.results[i].artistName;
             const pThree = $("<p>").text("Artist: " + artist);
-            movieDiv.append(pThree);
+            movieDiv2.append(pThree);
             //   ------------------------------------------------
             const kind = response.results[i].kind;
             const pFour = $("<p>").text("Kind: " + kind);
-            movieDiv.append(pFour);
+            movieDiv2.append(pFour);
             
-            $("#box").prepend(movieDiv);
+            $(cardDiv).append(movieDiv);
+            $(cardDiv).append(movieDiv2)
+            $('#box').append(cardDiv)
    
              }
                 }
@@ -149,15 +170,29 @@ $(document).ready(function() {
     // }
 
     
-    function addAnItem(){
-        console.log('ITEM')
+    // function addAnItem(){
+    //     console.log('ITEM')
+   
+    // }
+
+    
+  $(document).on('click', '#tt1', saveObject)
+
+  function saveObject(){
+        console.log('plus')
+        item =  ({
+                catagory: $(this).attr('catagory'),
+                title: $(this).attr('title'),
+                itemId:  $(this).attr('itemId'),
+                UserId: $(this).attr('UserId')
+        })
+        console.log(item)
         $.post("/api/newItem", item)
         .then(function(item){
             console.log(item)
             console.log('in post')
         })
     }
-
     
 
 //     let movie = $(this).val("#movie-input");
