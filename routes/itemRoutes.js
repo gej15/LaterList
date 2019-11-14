@@ -10,19 +10,21 @@ module.exports = function(app) {
         })
       }) 
 
-      app.get("/api/podcast", function(req, res) {
-        db.Item.findAll({}).then(function(results) {
-          res.json(results);
-        });
-      });
+      // app.get("/api/podcast", function(req, res) {
+      //   db.Item.findAll({        }).then(function(results) {
+      //     res.json(results);
+      //   });
+      // });
 
 
 app.get("/api/podcast/:id", function(req, res) {
-  console.log(req.params)
+  console.log(req.params.id)
   db.Item.findAll({
+    
     where: {
-      UserId: req.params.id
-    }
+      UserId: req.params.id 
+    },
+    include: [db.User]
   }).then(function(podcast) {
     res.json(podcast);
   });
