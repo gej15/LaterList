@@ -114,31 +114,53 @@ $(document).ready(function () {
                     console.log(response.results[i].kind)
                     console.log('------------------------------------')
 
-                    const movieDiv = $("<div class='podcast'>");
+                    const cardDiv = $("<div class= 'cardDiv'>")
+                    const movieDiv = $("<div class='cardImg'>");
+                    const movieDiv2 = $("<div class='cardText'>")
+                    const artwork = response.results[i].artworkUrl600;
+                    const pOne = $("<img>").attr({
+                        src: artwork,
+                        class: "displayPic",
+
+                    });
+                    movieDiv.append(pOne);
                     //             //   ------------------------------------------
                     const id = response.results[i].trackId;
                     const pID = $("<p>").text("Id" + id);
-                    movieDiv.append(pID);
-                    const artwork = response.results[i].artworkUrl100;
-                    const pOne = $("<p>").text("Artwork: " + artwork);
-                    movieDiv.append(pOne);
+                    movieDiv2.append(pID);
+
                     //   ---------------------------------------------
+                    const save = $('<div>').attr({
+                        id: "tt1",
+                        class: "icon material-icons saveButton",
+                        catagory: 'podcast',
+                        title: response.results[i].collectionName,
+                        itemId: response.results[i].trackId,
+                        UserId: userId
+                    })
+                    $('.saveButton').text('add')
+                    movieDiv2.append(save)
+
+
                     const name = response.results[i].collectionName;
                     const pTwo = $("<p>").text("Name: " + name);
-                    movieDiv.append(pTwo);
+                    movieDiv2.append(pTwo);
                     //   -----------------------------------------------
                     const artist = response.results[i].artistName;
                     const pThree = $("<p>").text("Artist: " + artist);
-                    movieDiv.append(pThree);
+                    movieDiv2.append(pThree);
                     //   ------------------------------------------------
                     const kind = response.results[i].kind;
                     const pFour = $("<p>").text("Kind: " + kind);
-                    movieDiv.append(pFour);
+                    movieDiv2.append(pFour);
 
-                    $("#box").prepend(movieDiv);
+                    $(cardDiv).append(movieDiv);
+                    $(cardDiv).append(movieDiv2)
+                    $('#box').append(cardDiv)
 
                 }
             }
+        }
             //  item = ({
             //     catagory: "podcast",
             //     title: response.results[0].collection,
@@ -151,64 +173,78 @@ $(document).ready(function () {
             // return item
             // }
         })
+})
+// }
+
+
+// function addAnItem(){
+//     console.log('ITEM')
+
+// }
+
+
+$(document).on('click', '#tt1', saveObject)
+
+function saveObject() {
+    console.log('plus')
+    item = ({
+        catagory: $(this).attr('catagory'),
+        title: $(this).attr('title'),
+        itemId: $(this).attr('itemId'),
+        UserId: $(this).attr('UserId')
     })
-    // }
+    console.log(item)
+    $.post("/api/newItem", item)
+        .then(function (item) {
+            console.log(item)
+            console.log('in post')
+        })
+}
 
 
-    function addAnItem() {
-        console.log('ITEM')
-        $.post("/api/newItem", item)
-            .then(function (item) {
-                console.log(item)
-                console.log('in post')
-            })
-    }
-
-
-
-    //     let movie = $(this).val("#movie-input");
-    //         // let movie = $('#movie-form').val();
-    //         const queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=c21b2973";
-    //         $.ajax({
-    //             url: queryURL,
-    //             method: "GET"
-    //         }).then(function(response) {
-    //             // console.log(response)
-    //             $("#search-movie").on("click", function(event){
-    //             console.log(movie)
-    //             event.preventDefault();
-    //             console.log("I work!")
-    //             console.log(response.Title)
-    //             const movieDiv = $("<div class='movie'>");
-    //             //   ------------------------------------------
-    //             const id = response.imdbID;
-    //             const pID = $("<p>").text("ID: " + id);
-    //             movieDiv.append(pID);
-    //             //   -----------------------------------------------
-    //             const rating = response.Rated;
-    //             const pOne = $("<p>").text("Rating: " + rating);
-    //             movieDiv.append(pOne);
-    //             //   ---------------------------------------------
-    //             const released = response.Released;
-    //             const pTwo = $("<p>").text("Released: " + released);
-    //             movieDiv.append(pTwo);
-    //             //   -----------------------------------------------
-    //             const plot = response.Plot;
-    //             const pThree = $("<p>").text("Plot: " + plot);
-    //             movieDiv.append(pThree);
-    //             //   ------------------------------------------------
-    //             const review = response.imdbRating;
-    //             const pFour = $("<p>").text("Score: " + review);
-    //             movieDiv.append(pFour);
-    //             //   ------------------------------------------------
-    //             const genre = response.Genre;
-    //             const pFive = $("<p>").text("Genre: " + genre);
-    //             movieDiv.append(pFive);
-    //             //   ------------------------------------------------
-    //             const imgURL = response.Poster;
-    //             const image = $("<img>").attr("src", imgURL);
-    //             movieDiv.append(image);
-    //             $("#movies-view").prepend(movieDiv);
-    //             });
+//     let movie = $(this).val("#movie-input");
+//         // let movie = $('#movie-form').val();
+//         const queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=c21b2973";
+//         $.ajax({
+//             url: queryURL,
+//             method: "GET"
+//         }).then(function(response) {
+//             // console.log(response)
+//             $("#search-movie").on("click", function(event){
+//             console.log(movie)
+//             event.preventDefault();
+//             console.log("I work!")
+//             console.log(response.Title)
+//             const movieDiv = $("<div class='movie'>");
+//             //   ------------------------------------------
+//             const id = response.imdbID;
+//             const pID = $("<p>").text("ID: " + id);
+//             movieDiv.append(pID);
+//             //   -----------------------------------------------
+//             const rating = response.Rated;
+//             const pOne = $("<p>").text("Rating: " + rating);
+//             movieDiv.append(pOne);
+//             //   ---------------------------------------------
+//             const released = response.Released;
+//             const pTwo = $("<p>").text("Released: " + released);
+//             movieDiv.append(pTwo);
+//             //   -----------------------------------------------
+//             const plot = response.Plot;
+//             const pThree = $("<p>").text("Plot: " + plot);
+//             movieDiv.append(pThree);
+//             //   ------------------------------------------------
+//             const review = response.imdbRating;
+//             const pFour = $("<p>").text("Score: " + review);
+//             movieDiv.append(pFour);
+//             //   ------------------------------------------------
+//             const genre = response.Genre;
+//             const pFive = $("<p>").text("Genre: " + genre);
+//             movieDiv.append(pFive);
+//             //   ------------------------------------------------
+//             const imgURL = response.Poster;
+//             const image = $("<img>").attr("src", imgURL);
+//             movieDiv.append(image);
+//             $("#movies-view").prepend(movieDiv);
+//             });
 
 })

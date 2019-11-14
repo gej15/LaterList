@@ -26,7 +26,7 @@ $(document).ready(function() {
     let email = ({
         name: user.email
     })
-    let userId = ""
+    let userId = "gej15@yahoo.com"
     
     function validateUser() {
         $.get("/api/user", function(data){
@@ -54,24 +54,51 @@ $(document).ready(function() {
                 } else {
                     console.log('already a user')
                     console.log(userId)  
+                    getItems()
                 }
             }
         })
     }
-    let item = ({
-        catagory: "podcast",
-        title:  "akward turtles",
-        itemId: "j256asig23rf",
-        UserId: 1,
-    })
 
-    function addAnItem(){
-        $.post("/api/newItem", item)
-        .then(function(item){
-            console.log(item)
+   
+    function getItems() {
+        console.log(userId)
+        UserId = userId || "";
+        console.log(UserId)
+        
+        $.get("/api/podcast", function(data){
+            res.JSON(data)
         })
-    }
-    addAnItem()
+        // if (UserId) {
+        //   UserId = "/?UserId=" + userId;
+        // }
+        // $.get("/api/podcast" + UserId, function(data) {
+        //   console.log("Posts", data);
+        //   pods = data;
+        //   if (!posts || !posts.length) {
+        //     displayEmpty(UserId);
+        //   }
+        //   else {
+        //     console.log(pods)
+        //   }
+        // });
+      }
+
+
+    // let item = ({
+    //     catagory: "podcast",
+    //     title:  "akward turtles",
+    //     itemId: "j256asig23rf",
+    //     UserId: 1,
+    // })
+
+    // function addAnItem(){
+    //     $.post("/api/newItem", item)
+    //     .then(function(item){
+    //         console.log(item)
+    //     })
+    // }
+    // addAnItem()
 
     function addUser() {
         $.post("/api/new", email)
