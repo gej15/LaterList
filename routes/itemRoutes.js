@@ -18,9 +18,10 @@ module.exports = function(app) {
 
 
 app.get("/api/podcast/:id", function(req, res) {
+  console.log(req.params)
   db.Item.findAll({
     where: {
-      UserId: req.params.UserId
+      UserId: req.params.id
     }
   }).then(function(podcast) {
     res.json(podcast);
