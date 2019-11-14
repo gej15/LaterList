@@ -73,6 +73,7 @@ $(document).ready(function() {
             console.log(data)
             for (let i = 0; i < data.length; i++){
                 console.log(data[i].itemId)
+                console.log(data[i].catagory)
                 let queryUrl =  'https://itunes.apple.com/lookup?id=' + data[i].itemId
                 
                 $.ajax({
@@ -91,33 +92,31 @@ $(document).ready(function() {
                     const cardDiv = $("<div class= 'cardDiv'>")
                     const movieDiv = $("<div class='cardImg'>");
                     const movieDiv2 = $("<div class='cardText'>")
-                    const artwork = response.results[0].artworkUrl600;
+                    const artwork = response.results[0].artworkUrl100;
                     const pOne = $("<img>").attr({
                         src: artwork,
                         class: "displayPic",
 
                     });
                     movieDiv.append(pOne);
-                    //             //   ------------------------------------------
-                    const id = response.results[0].trackId;
-                    const pID = $("<p>").text("Id" + id);
-                    movieDiv2.append(pID);
+                    if(data[i].catagory === 'tvSeason') {
+                        console.log('tv show')
+                        const name = response.results[0].collectionName
+                        const title = $('<p>').text("Title: " + name)
+                        movieDiv2.append(title)
 
-                    //   ---------------------------------------------
-                    const save = $('<div>').attr({
-                        id: "tt1",
-                        class: "icon material-icons saveButton",
-                        catagory: 'podcast',
-                        title: response.results[0].collectionName,
-                        itemId: response.results[0].trackId,
-                        UserId: userId
-                    })
-                    $('.saveButton').text('add')
-                    movieDiv2.append(save)
+                        const kind = response.results[0].collectionType
+                        const type = $('<p>').text("Kind: " + kind)
+                        movieDiv2.append(type)
+
+                        const genre = response.results[0].primaryGenreName
+                        const genreType = $('<p>').text("Genre: " + genre)
+                        movieDiv2.append(genreType)
+                    } else {
 
 
-                    const name = response.results[0].collectionName;
-                    const pTwo = $("<p>").text("Name: " + name);
+                    const name = response.results[0].trackName;
+                    const pTwo = $("<p>").text("Title: " + name);
                     movieDiv2.append(pTwo);
                     //   -----------------------------------------------
                     const artist = response.results[0].artistName;
@@ -127,7 +126,7 @@ $(document).ready(function() {
                     const kind = response.results[0].kind;
                     const pFour = $("<p>").text("Kind: " + kind);
                     movieDiv2.append(pFour);
-
+                    }
                     $(cardDiv).append(movieDiv);
                     $(cardDiv).append(movieDiv2)
                     $('#box').append(cardDiv)
