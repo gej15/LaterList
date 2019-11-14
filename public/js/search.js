@@ -127,7 +127,7 @@ $(document).ready(function () {
                     //             //   ------------------------------------------
                     const id = response.results[i].trackId;
                     const pID = $("<p>").text("Id" + id);
-                    movieDiv2.append(pID);
+                    // movieDiv2.append(pID);
 
                     //   ---------------------------------------------
                     const save = $('<div>').attr({
@@ -199,6 +199,7 @@ function saveObject() {
             console.log(item)
             console.log('in post')
         })
+        $(this).hide();
 }
 
 })

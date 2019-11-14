@@ -310,6 +310,11 @@ footer .mdl-logo a {
   width: 100%;
 }
 
+.saveButton {
+  background-color: tomato;
+  cursor: pointer;
+}
+
 #homeCard {
   background-color: transparent;
 }
