@@ -28,7 +28,7 @@ $(document).ready(function() {
     let email = ({
         name: user.email
     })
-    let userId = "gej15@yahoo.com"
+    let userId = ""
     
     function validateUser() {
         $.get("/api/user", function(data){
@@ -67,8 +67,9 @@ $(document).ready(function() {
         console.log(userId)
         UserId = userId || "";
         console.log(UserId)
+        // authorId = "/?author_id=" + authorId;
         
-        $.get("/api/podcast", function(data){
+        $.get("/api/podcast/" + userId, function(data){
             console.log(data)
             for (let i = 0; i < data.length; i++){
                 console.log(data[i].itemId)
