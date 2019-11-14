@@ -312,6 +312,7 @@ footer .mdl-logo a {
 
 .saveButton {
   background-color: tomato;
+  cursor: pointer;
 }
 
 #homeCard {
