@@ -9,38 +9,38 @@ var path = require("path");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function (app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   // index route loads view.html
-  app.get("/", function(req, res) {
+  app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-  app.get("/login", function(req, res){
+  app.get("/login", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   // add route loads the add.html page, where users can enter new books to the db
-  app.get("/browse", function(req, res) {
+  app.get("/browse", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/browse.html"));
   });
 
   // all route loads the all.html page, where all books in the db are displayed
-  app.get("/portfolio", function(req, res) {
+  app.get("/portfolio", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/portfolio.html"));
   });
 
   // short route loads the short.html page, where short books in the db are displayed
-  app.get("/search", function(req, res) {
+  app.get("/search", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/search.html"));
   });
 
-  app.get("/movies", function(req, res){
-    res.sendFile(path.join(__dirname,"../public/movies.html" ))
+  app.get("/movies", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/movies.html"))
   });
-  
+
 
 
 };
