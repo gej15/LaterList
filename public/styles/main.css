@@ -297,11 +297,12 @@ footer .mdl-logo a {
   color: white;
   height: 180px;
   background: url("../img/cover.jpg") center/cover;
-  /* border: 2px solid red; */
   margin: 0px;
-  float: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   height: 100%;
-  width: 60%;
+  border:none;
 }
 
 #searchBoxContainer {
