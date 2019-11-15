@@ -130,6 +130,7 @@ $(document).ready(function () {
 
                     });
                     movieDiv.append(pOne);
+
                       if(value === 'tvSeason') {
                         console.log('tv show')
                         const name = response.results[i].collectionName
@@ -225,6 +226,7 @@ function saveObject() {
             console.log(item)
             console.log('in post')
         })
+        $(this).hide();
 }
 
 })

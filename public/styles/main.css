@@ -275,7 +275,9 @@ footer .mdl-logo a {
 .catCard:hover {
   cursor: pointer;
 }
-
+.mdl-layout__header{
+  background-color: tomato;
+}
 #searchContainer {
   display: flex;
   width: 80vw;
@@ -306,6 +308,11 @@ footer .mdl-logo a {
   /* border: 2px solid purple; */
   height: 100%;
   width: 100%;
+}
+
+.saveButton {
+  background-color: tomato;
+  cursor: pointer;
 }
 
 #homeCard {
