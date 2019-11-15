@@ -87,11 +87,14 @@ $(document).ready(function () {
 
     $('#searchButton').on('click', function (event) {
         event.preventDefault()
+        $('#box').text('')
+        value=  $('#type').val()
+        console.log(value)
         let searchTerm = $('.search').val().trim()
         console.log(searchTerm)
         console.log('working')
         // function callPodcast() {
-        const podQueryURL = 'https://itunes.apple.com/search?term=' + searchTerm + '&entity=podcast&limit=10'
+        const podQueryURL = 'https://itunes.apple.com/search?term=' + searchTerm + '&entity=' + value +'&limit=10'
         let lookUpId = 'https://itunes.apple.com/lookup?id=769189585'
         $.ajax({
             url: podQueryURL,
@@ -109,41 +112,61 @@ $(document).ready(function () {
                     // server response
                     console.log(response.results[i].artworkUrl100)
                     console.log(response.results[i].trackId)
-                    console.log(response.results[i].collectionName)
+                    console.log(response.results[i].trackName)
                     console.log(response.results[i].artistName)
                     console.log(response.results[i].kind)
                     console.log('------------------------------------')
-
+                    // if(value === 'tvSeason') {
+                    //     console.log('tv show')
+                    // } else {
                     const cardDiv = $("<div class= 'cardDiv'>")
                     const movieDiv = $("<div class='cardImg'>");
                     const movieDiv2 = $("<div class='cardText'>")
-                    const artwork = response.results[i].artworkUrl600;
+                  
+                    const artwork = response.results[i].artworkUrl100;
                     const pOne = $("<img>").attr({
                         src: artwork,
                         class: "displayPic",
 
                     });
                     movieDiv.append(pOne);
-                    //             //   ------------------------------------------
-                    const id = response.results[i].trackId;
-                    const pID = $("<p>").text("Id" + id);
+
+                      if(value === 'tvSeason') {
+                        console.log('tv show')
+                        const name = response.results[i].collectionName
+                        const title = $('<p>').text("Title: " + name)
+                        movieDiv2.append(title)
+
+                        const kind = response.results[i].collectionType
+                        const type = $('<p>').text("Kind: " + kind)
+                        movieDiv2.append(type)
+
+                        const genre = response.results[i].primaryGenreName
+                        const genreType = $('<p>').text("Genre: " + genre)
+                        movieDiv2.append(genreType)
+
+                        const save = $('<div>').attr({
+                            id: "tt1",
+                            class: "icon material-icons saveButton",
+                            catagory: value,
+                            title: response.results[i].collectionName,
+                            itemId: response.results[i].collectionId,
+                            UserId: userId,
+                        })
+                        $('.saveButton').text('add')
+                        movieDiv2.append(save)
+                    } else {
+                                //   ------------------------------------------
+                    // const id = response.results[i].trackId;
+                    // const pID = $("<p>").text("Id" + id);
                     // movieDiv2.append(pID);
 
                     //   ---------------------------------------------
-                    const save = $('<div>').attr({
-                        id: "tt1",
-                        class: "icon material-icons saveButton",
-                        catagory: 'podcast',
-                        title: response.results[i].collectionName,
-                        itemId: response.results[i].trackId,
-                        UserId: userId
-                    })
-                    $('.saveButton').text('add')
-                    movieDiv2.append(save)
+                    
 
 
-                    const name = response.results[i].collectionName;
-                    const pTwo = $("<p>").text("Name: " + name);
+                    const name = response.results[i].trackName;
+                    const pTwo = $("<p>").text("Title: " + name);
                     movieDiv2.append(pTwo);
                     //   -----------------------------------------------
                     const artist = response.results[i].artistName;
@@ -154,24 +177,27 @@ $(document).ready(function () {
                     const pFour = $("<p>").text("Kind: " + kind);
                     movieDiv2.append(pFour);
 
+                    const save = $('<div>').attr({
+                        id: "tt1",
+                        class: "icon material-icons saveButton",
+                        catagory: value,
+                        title: response.results[i].trackName,
+                        itemId: response.results[i].trackId,
+                        UserId: userId,
+                    })
+                   
+                    movieDiv2.append(save)
+                    
+                }
                     $(cardDiv).append(movieDiv);
                     $(cardDiv).append(movieDiv2)
                     $('#box').append(cardDiv)
-
+                    $('.saveButton').text('add')
+                
                 }
             }
         }
-            //  item = ({
-            //     catagory: "podcast",
-            //     title: response.results[0].collection,
-            //     itemid:  response.results[0].trackId,
-            //     UserId: 2
-            // })
-
-            // console.log(item)
-
-            // return item
-            // }
+     
         )
 })
 // }
@@ -187,6 +213,7 @@ $(document).on('click', '.saveButton', saveObject)
 
 function saveObject() {
     console.log('plus')
+        $(this).css('display', 'none')
     item = ({
         catagory: $(this).attr('catagory'),
         title: $(this).attr('title'),
