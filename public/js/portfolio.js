@@ -100,12 +100,7 @@ $(document).ready(function() {
                     });
                     movieDiv.append(pOne);
 
-                    const minus = $('<div>').attr({
-                        id: "tt1",
-                        class: "icon material-icons destroyButton",
-                        id: data[i].id
-                    })
-                    movieDiv2.append(minus)
+                   
 
                     if(data[i].catagory === 'tvSeason') {
                         console.log('tv show')
@@ -135,6 +130,14 @@ $(document).ready(function() {
                     const pFour = $("<p>").text("Kind: " + kind);
                     movieDiv2.append(pFour);
                     }
+
+                    const minus = $('<div>').attr({
+                        id: "tt1",
+                        class: "icon material-icons destroyButton",
+                        id: data[i].id
+                    })
+                    movieDiv2.append(minus)
+
                     $(cardDiv).append(movieDiv);
                     $(cardDiv).append(movieDiv2)
                     $('#box').append(cardDiv)
@@ -175,7 +178,7 @@ $(document).ready(function() {
                     console.log(response);
                     
 
-                    const cardDiv = $("<div class= 'cardDiv'>")
+                    const cardDiv = $("<div class='cardDiv'>")
                     const movieDiv = $("<div class='cardImg'>");
                     const movieDiv2 = $("<div class='cardText'>")
                     const artwork = response.results[0].artworkUrl100;
@@ -185,18 +188,6 @@ $(document).ready(function() {
 
                     });
                     movieDiv.append(pOne);
-
-                    const minus = $('<div>').attr({
-                        id: "tt1",
-                        class: "icon material-icons destroyButton",
-                        catagory: value,
-                        title: response.results[i].collectionName,
-                        itemId: response.results[i].collectionId,
-                        UserId: userId,
-                        id: data[i].id
-                    })
-                    
-                    movieDiv2.append(minus)
 
                     if (data[i].category === 'tvSeason') {
                         console.log('tv show')
@@ -227,12 +218,20 @@ $(document).ready(function() {
                     movieDiv2.append(pFour);
                     }
 
+                    const minus = $('<div>').attr({
+                        id: "tt1",
+                        class: "icon material-icons destroyButton",
+                        catagory: value,
+                        UserId: userId,
+                        id: data[i].id
+                    })
+                    
+                    movieDiv2.append(minus)
+
                     $(cardDiv).append(movieDiv);
                     $(cardDiv).append(movieDiv2)
                     $('#box').append(cardDiv)
                     $('.destroyButton').text('cancel')
-                
-                
                 
                     }
                 })
@@ -249,24 +248,24 @@ $(document).ready(function() {
         })
      }
 
-     $(document).on('click', '.saveButton', saveObject)
+     $(document).on('click', '.destroyButton', destroyObject)
 
-     function saveObject() {
-         console.log('plus')
+     function destroyObject() {
+         console.log('minus')
              $(this).css('display', 'none')
          item = ({
-             category: $(this).attr('catagory'),
-             title: $(this).attr('title'),
-             itemId: $(this).attr('itemId'),
-             UserId: $(this).attr('UserId')
+             id: $(this).attr('id')
          })
+         let id = $(this).attr('id')
          console.log(item)
-         $.post("/api/newItem", item)
-             .then(function (item) {
-                 console.log(item)
-                 console.log('in post')
-             })
-             $(this).hide();
-     }
-        
+
+        $.ajax({
+            method: "DELETE",
+            url: "/api/item/" + id
+        })
+            .then(function() {
+                location.reload()
+            });
+        }
+     
 }) 
