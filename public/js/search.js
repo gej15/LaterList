@@ -105,9 +105,13 @@ $(document).ready(function () {
                     console.log('------------------------------------')
                     
 
-                    const cardDiv = $("<div class= 'cardDiv'>")
-                    const movieDiv = $("<div class='cardImg'>");
-                    const movieDiv2 = $("<div class='cardText'>")
+                    const cardDiv = $("<div>")
+                    cardDiv.attr({
+                        class: 'cardDiv '
+                        // class: 'mdl-card mdl-shadow--2dp'
+                    })
+                    const movieDiv = $("<div class='cardImg inline'>");
+                    const movieDiv2 = $("<div class='cardText inline'>")
                   
                     const artwork = response.results[i].artworkUrl100;
                     const pOne = $("<img>").attr({
@@ -171,7 +175,11 @@ $(document).ready(function () {
                     $(cardDiv).append(movieDiv);
                     $(cardDiv).append(movieDiv2)
                     $('#box').append(cardDiv)
-                    $('.saveButton').text('add')
+                    if (!user) {
+                        $('.saveButton').text('')
+                    } else {
+                        $('.saveButton').text('add')
+                    }
                 
                 }
             }
