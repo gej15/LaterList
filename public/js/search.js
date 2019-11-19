@@ -130,6 +130,7 @@ $(document).ready(function () {
 
                     });
                     movieDiv.append(pOne);
+
                       if(value === 'tvSeason') {
                         console.log('tv show')
                         const name = response.results[i].collectionName
@@ -214,7 +215,7 @@ function saveObject() {
     console.log('plus')
         $(this).css('display', 'none')
     item = ({
-        catagory: $(this).attr('catagory'),
+        category: $(this).attr('catagory'),
         title: $(this).attr('title'),
         itemId: $(this).attr('itemId'),
         UserId: $(this).attr('UserId')
@@ -225,6 +226,7 @@ function saveObject() {
             console.log(item)
             console.log('in post')
         })
+        $(this).hide();
 }
 
 })

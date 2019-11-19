@@ -1,4 +1,4 @@
-@import "@material/floating-label/mdc-floating-label";
+/* @import "@material/floating-label/mdc-floating-label"; */
 
 /* default main.css under here */
 img {
@@ -257,6 +257,10 @@ footer .mdl-logo a {
   justify-content: space-around;
 }
 
+#tvButton {
+  background-color: tomato;
+  width: 100px;
+}
 #allButton {
   background-color: tomato;
   width: 100px;
@@ -275,7 +279,9 @@ footer .mdl-logo a {
 .catCard:hover {
   cursor: pointer;
 }
-
+.mdl-layout__header{
+  background-color: tomato;
+}
 #searchContainer {
   display: flex;
   width: 80vw;
@@ -306,6 +312,11 @@ footer .mdl-logo a {
   /* border: 2px solid purple; */
   height: 100%;
   width: 100%;
+}
+
+.saveButton {
+  background-color: tomato;
+  cursor: pointer;
 }
 
 #homeCard {

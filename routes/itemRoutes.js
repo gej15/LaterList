@@ -17,12 +17,27 @@ module.exports = function(app) {
       // });
 
 
-app.get("/api/podcast/:id", function(req, res) {
+app.get("/api/user/:id", function(req, res) {
   console.log(req.params.id)
   db.Item.findAll({
     
     where: {
       UserId: req.params.id 
+    },
+    include: [db.User]
+  }).then(function(podcast) {
+    res.json(podcast);
+  });
+});
+
+app.get("/api/user/:id/:category", function(req, res) {
+  console.log(req.params.id)
+  db.Item.findAll({
+    
+    where: {
+      UserId: req.params.id, 
+      category: req.params.category
+
     },
     include: [db.User]
   }).then(function(podcast) {
