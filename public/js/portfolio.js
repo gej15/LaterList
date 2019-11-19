@@ -249,24 +249,24 @@ $(document).ready(function() {
         })
      }
 
-     $(document).on('click', '.saveButton', saveObject)
+     $(document).on('click', '.destroyButton', destroyObject)
 
-     function saveObject() {
-         console.log('plus')
+     function destroyObject() {
+         console.log('minus')
              $(this).css('display', 'none')
          item = ({
-             category: $(this).attr('catagory'),
-             title: $(this).attr('title'),
-             itemId: $(this).attr('itemId'),
-             UserId: $(this).attr('UserId')
+             id: $(this).attr('id')
          })
+         let id = $(this).attr('id')
          console.log(item)
-         $.post("/api/newItem", item)
-             .then(function (item) {
-                 console.log(item)
-                 console.log('in post')
-             })
-             $(this).hide();
-     }
-        
+
+        $.ajax({
+            method: "DELETE",
+            url: "/api/item/" + id
+        })
+            .then(function() {
+                location.reload()
+            });
+        }
+     
 }) 
