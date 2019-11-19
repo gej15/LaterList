@@ -99,6 +99,14 @@ $(document).ready(function() {
 
                     });
                     movieDiv.append(pOne);
+
+                    const minus = $('<div>').attr({
+                        id: "tt1",
+                        class: "icon material-icons destroyButton",
+                        id: data[i].id
+                    })
+                    movieDiv2.append(minus)
+
                     if(data[i].catagory === 'tvSeason') {
                         console.log('tv show')
                         const name = response.results[0].collectionName
@@ -130,6 +138,7 @@ $(document).ready(function() {
                     $(cardDiv).append(movieDiv);
                     $(cardDiv).append(movieDiv2)
                     $('#box').append(cardDiv)
+                    $('.destroyButton').text('cancel')
                 
                 
                 
@@ -176,7 +185,20 @@ $(document).ready(function() {
 
                     });
                     movieDiv.append(pOne);
-                    if(data[i].category === 'tvSeason') {
+
+                    const minus = $('<div>').attr({
+                        id: "tt1",
+                        class: "icon material-icons destroyButton",
+                        catagory: value,
+                        title: response.results[i].collectionName,
+                        itemId: response.results[i].collectionId,
+                        UserId: userId,
+                        id: data[i].id
+                    })
+                    
+                    movieDiv2.append(minus)
+
+                    if (data[i].category === 'tvSeason') {
                         console.log('tv show')
                         const name = response.results[0].collectionName
                         const title = $('<p>').text("Title: " + name)
@@ -189,8 +211,8 @@ $(document).ready(function() {
                         const genre = response.results[0].primaryGenreName
                         const genreType = $('<p>').text("Genre: " + genre)
                         movieDiv2.append(genreType)
+                   
                     } else {
-
 
                     const name = response.results[0].trackName;
                     const pTwo = $("<p>").text("Title: " + name);
@@ -204,9 +226,11 @@ $(document).ready(function() {
                     const pFour = $("<p>").text("Kind: " + kind);
                     movieDiv2.append(pFour);
                     }
+
                     $(cardDiv).append(movieDiv);
                     $(cardDiv).append(movieDiv2)
                     $('#box').append(cardDiv)
+                    $('.destroyButton').text('cancel')
                 
                 
                 
@@ -217,46 +241,32 @@ $(document).ready(function() {
     })
         
 
-
-
-
-        // if (UserId) {
-        //   UserId = "/?UserId=" + userId;
-        // }
-        // $.get("/api/podcast" + UserId, function(data) {
-        //   console.log("Posts", data);
-        //   pods = data;
-        //   if (!posts || !posts.length) {
-        //     displayEmpty(UserId);
-        //   }
-        //   else {
-        //     console.log(pods)
-        //   }
-        // });
-    //   }
-
-
-    // let item = ({
-    //     catagory: "podcast",
-    //     title:  "akward turtles",
-    //     itemId: "j256asig23rf",
-    //     UserId: 1,
-    // })
-
-    // function addAnItem(){
-    //     $.post("/api/newItem", item)
-    //     .then(function(item){
-    //         console.log(item)
-    //     })
-    // }
-    // addAnItem()
-
     function addUser() {
         $.post("/api/new", email)
         .then(function(email) {
             // Log the data we found
         console.log(email);
         })
+     }
+
+     $(document).on('click', '.saveButton', saveObject)
+
+     function saveObject() {
+         console.log('plus')
+             $(this).css('display', 'none')
+         item = ({
+             category: $(this).attr('catagory'),
+             title: $(this).attr('title'),
+             itemId: $(this).attr('itemId'),
+             UserId: $(this).attr('UserId')
+         })
+         console.log(item)
+         $.post("/api/newItem", item)
+             .then(function (item) {
+                 console.log(item)
+                 console.log('in post')
+             })
+             $(this).hide();
      }
         
 }) 
