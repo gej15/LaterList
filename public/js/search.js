@@ -73,7 +73,7 @@ $(document).ready(function () {
     $('#searchButton').on('click', function (event) {
         event.preventDefault()
         $('#box').text('')
-        value=  $('#type').val()
+        value =  $('#type').val()
         console.log(value)
         let searchTerm = $('.search').val().trim()
         console.log(searchTerm)
